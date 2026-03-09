@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="opt_idade">
+    <input type="text" id="ipt_qtd_pets">
+
+    <button>Analisar <a href="https://google.com.br">link text</a></button>
+    <div id="div_resultado"></div>
+</body>
+<script>
+    // Se o cliente é maior de idade E possui mais de 3 pets, pode pegar crédito
+    function analisar(){
+        let idade = Number(ipt_idade.value)
+        let qtd_pets = Number(ipt_qtd_pets.value)
+
+        if(idade >= 18){
+            if(qtd_pets >= 3){
+                div_resultado.innerHTML = "Você tem direito ao crédito Pet Feliz!"
+            }
+        }
+        if(idade >= 18 && qtd_pets >= 3){
+            div_mensagem.innerHTML = "Você tem direito ao crédito Pet Feliz!"
+        }
+        //Esse ta errado de acordo com a regra!
+        if(idade >= 18 || qtd_pets >= 3){
+            div_resultado.innerHTML="Você tem direito ao crédito Pet Feliz!"
+        }
+        let loginDigitado = "bob-admin"
+        let senhaDigitada = "123"
+
+        let loginCorreto = "bob-admin" //busquei no BD
+        let senhaCorreta = "senhaForte" //busquei no BD
+        //cuidado com nome de variáveis boleanas!
+        let userBloqueado = false;
+
+        if(loginDigitado == loginCorreto && senhaDigitada == senhaCorreta){
+            if(!userBloqueado){
+                //Redireciona para a Dash 
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <H1>Sua dieta está saudável?</H1>
+    <br>
+    <label>Quantos pães frances você ingere</label>
+    <input type="number" id="id_pao">
+    <br>
+    <label> Quantos pacotes de bolacha você ingere</label>
+    <input type="number" id="id_bolacha">
+    <br>
+    <label> Quantos copos de achocolatado você ingere</label>
+    <input type="number" id="id_choco">
+    <br>
+    <button onclick="calorias()">Verificar calorias</button>
+    <br>
+    <div id="verificar_calorias"></div>
+</body>
+<script>
+    function calorias() {
+        let pão = Number(id_pao.value)
+        let bolacha = Number(id_bolacha.value)
+        let choco = Number(id_choco.value)
+        let total = pão * 50 + bolacha * 80 + choco * 70
+
+        if (total < 200) {
+            verificar_calorias.innerHTML = "Parabéns, vai ficar em forma!"
+        } else if (total <= 400) {
+            verificar_calorias.innerHTML = "Cuidado, vai ficar menos saudável !"
+        } else {
+            verificar_calorias.innerHTML = "Alerta crítico de saúde !!!"
+        }
+    }
+</script>
+
+</html>
