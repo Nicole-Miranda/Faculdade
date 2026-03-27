@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detector de Mensagem Suspeitas</h1>
+    <label>Digitar mensagem</label>
+    <input type="text" id="ipt_digitar">
+    <br><br>
+    <button onclick="analisar_mensagem()">Analisar mensagem</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    function analisar_mensagem() {
+       
+        let frase_original = ipt_digitar.value
+
+        let tamanho_frase = frase_original.length
+        console.log(`Esse é o tamanho da frase: ${tamanho_frase}`);
+        
+        let comeca_com = frase_original.startsWith("Eu");
+        console.log(`Essa frase começa com:${comeca_com}`);
+        
+        let termina_com = frase_original.endsWith(".com");
+        let termina_br = frase_original.endsWith(".br")
+        console.log(`Essa frase termina com:${termina_com}`)
+
+        let primeira_letra = frase_original[0]
+        console.log(`Essa é a primeira letra da frase:${primeira_letra}`)
+    
+        let quarta_letra = frase_original[3]
+        console.log(`Essa é a quarta letra da frase:${quarta_letra}`)
+
+        let ultima_posicao = tamanho_frase - 1
+        let ultima_letra = frase_original[ultima_posicao]
+        console.log(`Essa é a ultima letra da frase:${ultima_letra}`)
+
+        let indice_com = frase_original.indexOf("Bob")
+        console.log(`Essa frase inicia com Bob:${indice_com}`)
+        let indice_bob = frase_original.includes("bob")
+        console.log(`Essa frase tem o bob:${indice_bob}`)
+
+        let frase_caixa_alta = frase_original.toUpperCase();
+        console.log(`Essa frase esta GRITANDO ${frase_caixa_alta}`)
+        let frase_caixa_baixa = frase_original.toLowerCase();
+        console.log(`essa frase fala baixinho ${frase_caixa_baixa}`)
+        let frase_espaco = frase_original.trim()
+        console.log(`Essa frase tem espaços ${frase_espaco}`)
+
+        if(frase_espaco==""){
+            resultado.innerHTML+="Digite uma mensagem válida"
+
+        }if(tamanho_frase<10){
+            resultado.innerHTML+="Mensagem muito curta para análise"
+        }
+
+        console.log(indice_bob)
+        
+        if(indice_bob){
+            resultado.innerHTML+="Atenção: usuário Bob mencionado na mensagem."
+
+        }if(termina_com || termina_br){
+            resultado.innerHTML+="A mensagem contém um possivel link."
+
+        }if(indice_bob=="promoção"||indice_bob=="grátis"){
+            resultado.innerHTML+="Possivel mensagem de spam detectada"
+
+        }if(comeca_com=="Eu"){
+            resultado.innerHTML+="A mensagem parece estar escrita em primeira pessoa."
+        }
+    }
+    
+    </script>
+    </html>

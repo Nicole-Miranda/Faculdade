@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simulador de Preferências de Compras</h1>
+    <label>Tamanho do celular encontrado</label>
+    <input type="number" id="id_tamanho" placeholder="em polegadas"> <br> <br>
+    <label>Cor do celular encontrado</label>
+    <input type="text" id="id_cor" placeholder="Preto, Prata, Azul ou Vermelho"> <br> <br>
+    <button onclick="Gosta()">Será que ele gosta?</button>
+    <div id="mensagem"></div>
+</body>
+<script>
+
+    function Gosta(){
+        let tamanho = Number(id_tamanho.value)
+    let cor = id_cor.value
+        if(tamanho >= 6.5 && (cor == "preto" || cor == "prata") ){
+            mensagem.innerHTML='<img src="https://img.freepik.com/fotos-premium/retrato-de-um-muito-feliz-homem-frente-um-grupo-pessoas_53419-4335.jpg" alt="homem feliz">' 
+        } else {
+            mensagem.innerHTML='<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxpau-LfJDqVqorWQzAFtPmJjwjAx2uEk87w&s" alt="homem pessimo">'
+        }
+    }
+</script>
+</html>

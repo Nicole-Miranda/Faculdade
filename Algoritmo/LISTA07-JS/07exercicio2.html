@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <h1>Pessoas dentro do carro</h1>
+    <br><br>
+    <label>Quantas pessoas vão entrar no carro?</label>
+    <input type="text" id="ipt_qtd_pessoas">
+    <br><br>
+    <button onclick="carona()">Partiu Carona</button>
+    <br><br>
+    <label>Capacidade de passageiros</label>
+    <input type="text" id="ipt_quantidade">
+    <br><br>
+    <button onclick="capacidade()">Capacidade</button>
+    <div id="mensagem"></div>
+<body>
+    <script>
+    function carona(){
+        mensagem.innerHTML=""
+        
+        let passageiro = Number(ipt_qtd_pessoas.value)
+
+        for(let i = 0; i<passageiro; i ++){
+
+            if(i == 0){
+                mensagem.innerHTML+=`Entrou o ${i + 1} passageiro (O motorista)<br>`
+
+            } else if (i <5){
+
+                mensagem.innerHTML+=`Entrou o ${i + 1} passageiro <br> `
+
+            }
+
+    }
+    }
+    
+    function capacidade(){
+        let passageiro = Number(ipt_qtd_pessoas.value)
+        let capacidadeMáxima = Number(ipt_quantidade.value)
+        for(let i = 0; i<passageiro; i ++){
+
+            if(i == 0){
+                mensagem.innerHTML+=`Entrou o ${i + 1} passageiro (O motorista)<br>`
+
+            } else if (i <5){
+
+                mensagem.innerHTML+=`Entrou o ${i + 1} passageiro <br> `
+
+            }
+            if(i>5){
+                mensagem.innerHTML=`O ${i + 1} passageiro terá que esperar <br>` 
+            }
+         }
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Acesso ao Banco Melete</h1>
+    <label>Login</label>
+    <input type="text" id="ipt_login">
+    <br><br>
+    <label>Senha</label>
+    <input type="password" id="ipt_senha">
+    <br><br>
+    <label>Informação Pessoal</label>
+    <input type="text" id="ipt_pessoal" placeholder="Ano de Nascimento ou Animal Favorito">
+    <br><br>
+    <button onclick="Autenticando()">Autenticar</button>
+    <div id="mensagem"></div>
+</body>
+<script>
+     let count = 0
+    function Autenticando(){
+        let login = ipt_login.value
+        let senha = ipt_senha.value
+        let infoPessoal = ipt_pessoal.value
+        
+
+        if(login=="ana" && senha=="braga" && (infoPessoal=="1949"||infoPessoal=="louro josé")){
+            count = 0
+            mensagem.innerHTML="Usuário Autenticado"
+            }
+
+             if(count>=3){
+            mensagem.innerHTML="Usuário BLOQUADO!Procure seu gerente"
+            return;
+        }
+
+        else{
+                erros++
+                let tentativas = 3 - erros 
+
+               if(erros >=3){
+                mensagem.innerHTML="Falha na autenticação <br> Usuário BLOQUADO!Procure seu gerente" 
+                
+               }else{
+                mensagem.innerHTML=`Falha na autenticação <br> Você ainda tem ${tentativas} tentativa(s)`
+               }
+            }
+        }
+</script>
+</html>

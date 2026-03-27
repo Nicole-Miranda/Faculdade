@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Coca cola</h1>
+    <label>Quantas Coca-Colas você acha tomou na vida?</label>
+    <input type="text" id="ipt_coca">
+    <br><br>
+    <button onclick="quantidade()">Ver quantidade</button>
+    <div id="mensagem"></div>
+    <!-- <img src="https://coopsp.vtexassets.com/arquivos/ids/249027/55993.png?v=638937338201970000" alt="coca">-->
+</body>
+<script>
+    function quantidade(){
+
+        let coca = Number(ipt_coca.value)
+        
+        for (let i = 1; i<=coca; i ++){
+            
+            mensagem.innerHTML+=`<img src="https://coopsp.vtexassets.com/arquivos/ids/249027/55993.png?v=638937338201970000" alt="coca" width="100">`
+        }
+    
+
+
+}
+
+       
+        
+        
+        
+
+    
+</script>
+</html>

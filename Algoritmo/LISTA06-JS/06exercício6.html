@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>O aluno foi aprovado??</h1>
+    <label>Informe sua nota</label>
+    <input type="text" id="ipt_nota">
+    <br><br>
+    <label>Informe sua frequência de presença</label>
+    <input type="text" id="ipt_presenca">
+    <br><br>
+    <button onclick="Analisando()">Analisar Aluno</button>
+    <div id="mensagem"></div>
+</body>
+<script>
+    function Analisando(){
+        let nota = Number(ipt_nota.value)
+        let presenca = Number(ipt_presenca.value)
+
+        if(nota<0 || nota>10){
+            alert("Onde já se viu uma nota menor que 0 e maior que 10?")
+
+        }else if(presenca<0||presenca<100){
+            alert("Onde já se viu uma frequência entre 0 e 100")
+
+        }else if(nota>=0 && nota<6){
+            mensagem.innerHTML="Aluno ficou abaixo da média<br>"
+
+        }else if(nota>=6 && nota<=8){
+            mensagem.innerHTML="Aluno ficou na média<br>"
+
+        }else if(nota>=8 && nota<=10){
+            mensagem.innerHTML="Aluno acima da média<br>"
+        }
+
+        if(presenca>=75){
+            mensagem.innerHTML+="Aluno aprovado por frequência"
+        }else{
+            mensagem.innerHTML+="Aluno reprovado por frequência"
+        }
+    }
+</script>
+</html>
