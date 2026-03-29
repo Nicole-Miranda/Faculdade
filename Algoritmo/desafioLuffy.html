@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <label>Quantidade de batalhas</label>
+    <input type="text" id="ipt_batalhas">
+    <br><br>
+    <labe>Quantidade marinheiros (em cada batalha)</label>
+        <input type="text" id="ipt_quantidade">
+        <br><br>
+        <label>Quantidade de carnes disponíveis</label>
+        <input type="text" id="ipt_carnes">
+        <br><br>
+        <button onclick="Iniciar()">Iniciar Batalha</button>
+        <div id="resultado"></div>
+</body>
+<script>
+
+
+    function Iniciar() {
+        let energiaInicial = 100
+        let energiaFinal = energiaInicial
+        let batalhas = Number(ipt_batalhas.value)
+        let carnes = Number(ipt_carnes.value)
+        let marinheiros = Number(ipt_quantidade.value)
+        
+        for (let i = 1; i <= batalhas; i++) {
+            if(i !=1){
+                energiaFinal -= 10
+                energiaInicial = energiaFinal
+            }
+            
+            let marinheirosDerrotados = 0
+            for (let n = 0; n < marinheiros; n++) {
+                if (energiaFinal >= 5) {
+                    energiaFinal -= 5
+                    marinheirosDerrotados++
+                } else {
+                    if (carnes > 0) {
+                        carnes--
+                        energiaFinal += 100
+                        energiaFinal -= 5
+                        marinheirosDerrotados++
+                    }
+                }
+            }
+
+
+            if (marinheirosDerrotados == marinheiros) {
+
+                resultado.innerHTML += `<br>${i}º Batalha Iniciada:
+                <br>Quantidade de Energia Inicial: ${energiaInicial}
+                
+                <br>Resultado: Luffy saiu vitorioso, derrotando ${marinheirosDerrotados} marinheiro(s)
+                <br>⚡ Energia Restante no Final da Batalha: ${energiaFinal}
+                <br>🥩 Carnes Restantes no Final da Batalha: ${carnes}<br>`
+            } else if (carnes == 0 && energiaInicial <= 0) {
+                resultado.innerHTML += `<br>Não é possível iniciar a ${i}º, acabou a carne e a energia<br>`
+            } else {
+                resultado.innerHTML += `<br>${i}º Batalha Iniciada:
+                <br>Quantidade de Energia Inicial: ${energiaInicial}
+                
+                <br>Resultado: Luffy saiu derrotado, derrotando ${marinheirosDerrotados} marinheiro(s)
+                <br>⚡ Energia Restante no Final da Batalha: ${energiaFinal}
+                <br>🥩 Carnes Restantes no Final da Batalha: ${carnes}<br>`
+            }
+
+        }
+
+
+
+    }
+</script>
+
+</html>

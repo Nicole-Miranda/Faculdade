@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Escreva o intervalo crescente de valores númericos</label>
+    <input type="text" id="numero">
+<br><br>
+    <button onclick="exibir()">S2 Pares</button>
+
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function exibir() {
+        resultado.innerHTML = "";
+
+        let contador = 0;
+
+        while (contador < Number(ipt_numero.value)) {
+            if (contador % 2 == 0) resultado.innerHTML += `${contador}<br>`;
+            contador++;
+        }
+    }
+</script>
