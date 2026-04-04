@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <label>Quantos depósitos você fez no banco?</label>  
+  <input type="text" id="ipt_depositos">
+  <br><br>
+  <label>Valor de cada depósito</label>
+  <input type="text" id="ipt_valor">
+  <br><br>
+  <button onclick="exibir()">Acompanhar grana</button>
+  <div id="resultado"></div>
+</body>
+<script>
+    function exibir(){
+        let depositado = Number(ipt_depositos.value)
+        let valor = Number(ipt_valor.value)
+        let contador = 1
+        resultado.innerHTML=""
+        
+        while(contador <= depositado){
+        resultado.innerHTML+=`<br>${contador}° mês: R$${valor * contador}<br><br>`
+        contador ++
+        }
+        resultado.innerHTML+=`<br>Total guardado: ${valor * depositado}<br>`
+    }
+</script>
+</html>

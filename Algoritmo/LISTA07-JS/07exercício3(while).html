@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Quantas xícaras de café com leite você já tomou na vida?</label>
+    <input type="text" id="ipt_xicara">
+    <br><br>
+    <button onclick="exibir()">Ver quantidade</button>
+    <div id="resultado"></div>
+    <img src="" alt="">
+</body>
+<script>
+    function exibir(){
+        let quantidade = Number(ipt_xicara.value)
+        let contador = 1
+        let café = (quantidade * 2)
+        while(contador <= quantidade){
+        resultado.innerHTML+=` <img src="https://st2.depositphotos.com/2924751/9252/i/950/depositphotos_92528520-stock-photo-hand-holds-scoop-with-powdered.jpg" alt="leite em pó">` 
+        contador ++
+        } while(contador <= café){
+            resultado.innerHTML+=`<img src="https://img.freepik.com/fotos-premium/cafe-em-po-cafe-em-colher-isolado-no-fundo-branco_250899-63.jpg" alt="colher de café">`
+            contador ++
+        }
+    }
+</script>
+</html>
