@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas pessoas vão entrar no carro: <input type="text" id="ipt_qtd"> 
+    <br><br>
+    Quantos passageiros o veículo suporta: <input type="text" id="ipt_qtd2">
+
+    <button onclick="partiu()">#Partiu Carona</button>
+
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+
+    function partiu() {
+        resultado.innerHTML = "";
+
+        let mensagem = "";
+        let contador =  1;
+        while (contador <= ipt_qtd.value) {
+            mensagem += "<br><br>";
+
+            if (contador > ipt_qtd2.value) {
+                mensagem += `O ${contador}° terá que esperar!`;
+            } else {
+                mensagem += `Entrou o ${contador}° passageiro`;
+            }
+            
+            if (contador == 1) mensagem += " (que é o(a) motorista)";
+
+            resultado.innerHTML = mensagem;
+
+            contador++;
+        }
+    }
+</script>

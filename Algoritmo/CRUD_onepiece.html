@@ -44,6 +44,7 @@
         let comida = ipt_comidas.value
         Listacomidas.push(comida)
         console.log(Listacomidas)
+        alert("Comida cadastrada!")
     }
 
     function verificar() {
@@ -83,8 +84,10 @@
     function estoque() {
         let comidaCadastrada = Listacomidas
         let alimento = ipt_comidas.value
+
         for (let i = 0; i < comidaCadastrada.length; i ++){
             let contar = 0 
+
             for (let j = 0; j < comidaCadastrada.length; j++) {
                 if(comidaCadastrada[i] == comidaCadastrada[j]){
                     contar ++
@@ -96,14 +99,23 @@
     function alterar() {
         let nomeAtual = ipt_comidaAtual.value
         let novoNome = ipt_novocomida.value
-        if (nomeAtual == Listacomidas) {
+        let encontrou = false 
+
+        for (let i = 0; i < Listacomidas.length; i++) {
+            if (Listacomidas[i] == nomeAtual) {
+                Listacomidas[i] = novoNome;
+                encontrou = true;
+            }
+        }
+
+        if (encontrou) {
             resultado.innerHTML = `A comida ${nomeAtual} foi alterada para ${novoNome}`
         } else {
             resultado.innerHTML = `A comida ${nomeAtual} não foi encontrada no estoque.`
         }
     }
     function remover() {
-
+        
     }
 </script>
 

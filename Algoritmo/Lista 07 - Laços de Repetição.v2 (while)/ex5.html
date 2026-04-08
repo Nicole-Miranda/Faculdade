@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas Coca-Cola você já bebeu? <input type="text" id="qtd_latinhas">
+
+    <button onclick="analisar()">Ver a quantidade</button>
+
+    <div id="resultado"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        resultado.innerHTML = "<br>Quantidade de Latinhas:<br><br>"
+
+        let contador = 0;
+        while (contador < qtd_latinhas.value) {
+            resultado.innerHTML += " <i>latinha<i>";
+            contador++;
+        }
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantos depósitos feitos? <input type="text" id="qtd">
+    Valor de cada depósito? <input type="text" id="valor">
+
+    <button onclick="acompanhar()">Acompanhar Grana</button>
+
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function acompanhar() {
+        resultado.innerHTML = "";
+        let soma = 0;
+        let contador =  1;
+
+        while(contador <= qtd.value) {
+            let estrela = ""
+
+            soma += Number(valor.value)
+            
+            if (contador%3 == 0) {
+                soma *= 1.01;
+                estrela = "⭐";
+            }
+
+            resultado.innerHTML += `<br>${contador}° Mês: R$ ${soma.toFixed(2)} ${estrela}`
+            contador++;
+        }
+
+        resultado.innerHTML += `<br>Total Guardado: R$${soma.toFixed(2)}`;
+    }
+</script>
