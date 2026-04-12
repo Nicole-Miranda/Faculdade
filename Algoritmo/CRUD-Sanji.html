@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Cadastrar estoque de comidas:</p>
+    <input type="text" id="ipt_comida">
+    <br>
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="verificar()">Verificar Quantidade</button>
+    <p>Insira a comida que deseja pesquisar:</p>
+    <input type="text" id="ipt_pesquisa">
+    <br>
+    <br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="exibir()">Exibir Estoque</button>
+    <p>Insira o nome atual da comida que deseja atualizar:</p>
+    <input type="text" id="ipt_nome_antigo">
+    <p>Insira o novo nome da comida que deseja atualizar:</p>
+    <input type="text" id="ipt_nome_novo">
+    <br>
+    <br>
+    <button onclick="alterar()">Alterar Nome</button>
+    <p>Nome da comida que deseja remover do estoque:</p>
+    <input type="text" id="ipt_remover">
+    <br>
+    <br>
+    <button onclick="remover()">Remover Comida</button>
+    <p id="p_mensagem"></p>
+</body>
+</html>
+<script>
+    let comidas = [];
+    function cadastrar () {
+        let comida = ipt_comida.value;
+
+        comidas.push(comida);
+    }
+
+    function verificar () {
+        if (comidas.length < 3) {
+            p_mensagem.innerHTML = `Desse jeito, o Luffy devora até o navio`;
+        } else if (comidas.length <= 7) {
+            p_mensagem.innerHTML = `O comilão do Luffy não vai deixar sobrar nenhuma comida`;
+        } else if (comidas.length <= 10) {
+            p_mensagem.innerHTML = `Assim, talvez sobre um pouco para a tripulação`;
+        } else {
+            p_mensagem.innerHTML = `Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!`;
+        }
+    }
+
+    function pesquisar () {
+        let pesquisa = ipt_pesquisa.value;
+        let contador = 0;
+        if (comidas.includes(pesquisa)) {
+            for (let i = 0; i < comidas.length; i++) {
+                if (comidas[i] == pesquisa) {
+                    contador++;
+                }
+            }
+            p_mensagem.innerHTML = `Temos a comida ${pesquisa} e há ${contador} unidade(s) dela`;
+        } else {
+            p_mensagem.innerHTML = `Alguém vai ter que comprar ${pesquisa}, tá fazendo falta...`
+        }
+    }
+
+    function exibir () {
+        let itens = [];
+        let quantidades = [];
+        for (let i = 0; i < comidas.length; i++) {
+            let contador = 0;
+            if (!itens.includes(comidas[i])) {
+                itens.push(comidas[i])
+                for (let j = 0; j < comidas.length; j++) {
+                    if (comidas[i] == comidas[j]) {
+                        contador++;
+                    }
+                }
+                quantidades.push(contador);
+            }
+        }
+
+        p_mensagem.innerHTML = ``;
+
+        for (let i = 0; i < itens.length; i++) {
+            if (quantidades[i] == 1) {
+                p_mensagem.innerHTML += `${itens[i]} (${quantidades[i]} unidade)<br>`;
+            } else {
+                p_mensagem.innerHTML += `${itens[i]} (${quantidades[i]} unidades)<br>`;
+            }
+        }
+    }
+
+    function alterar () {
+        let a = ipt_nome_antigo.value;
+        let n = ipt_nome_novo.value;
+        if (comidas.includes(a)) {
+            for (let i = 0; i < comidas.length; i++) {
+                if (comidas[i] == a) {
+                    comidas.splice(i, 1, n);
+                }
+            }
+
+            p_mensagem.innerHTML = `A comida ${a} foi alterada para ${n}`;
+        } else {
+            p_mensagem.innerHTML = `A comida ${a} não foi encontrada no estoque`;
+        }
+    }
+
+    function remover () {
+        let r = ipt_remover.value;
+
+        if (comidas.includes(r)) {
+            while (comidas.includes(r)) {
+                let i = comidas.indexOf(r);
+                comidas.splice(i, 1);
+            }
+            p_mensagem.innerHTML = `A comida ${r} foi removida do estoque`;
+        } else {
+            p_mensagem.innerHTML = `A comida ${r} não está no estoque`;
+        }
+    }
+</script>

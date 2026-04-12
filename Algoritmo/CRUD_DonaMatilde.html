@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Cadastrar Antiguidade</label>
+    <input type="text" id="ipt_cadastrar">
+    <br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br><br>
+    <button onclick="verificar()">Verificar estoque</button>
+    <br><br>
+    <label>Pesquisar Antiguidade</label>
+    <input type="text" id="ipt_antiguidade">
+    <br><br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <br><br>
+    <label>Item Atual</label>
+    <input type="text" id="ipt_itematual">
+    <br><br>
+    <label>Novo item</label>
+    <input type="text" id="ipt_novoitem">
+    <br><br>
+    <button onclick="alterar()">Alterar Nome</button>
+    <br><br>
+    <label>Item que irá ser removido</label>
+    <input type="text" id="ipt_itemremovido">
+    <br><br>
+    <button onclick="remover()">Remover item</button>
+    <br><br>
+    <button onclick="duplicados()">Itens Duplicados</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    let lista = []
+    resultado.innerHTML = ''
+    function cadastrar() {
+        let cadastrar = ipt_cadastrar.value
+        lista.push(cadastrar)
+        alert('Objeto Cadastrado')
+        console.log(lista)
+    }
+    function verificar() {
+        if (lista.length < 3) {
+            resultado.innerHTML += 'A loja está quase vazia, precisamos de mais peças raras!<br>'
+        } else if (lista.length <= 7) {
+            resultado.innerHTML += 'Temos algumas peças, mas ainda podemos melhorar o acervo<br>'
+        } else if (lista.length <= 8 || lista <= 10) {
+            resultado.innerHTML += 'Ótimo! A loja já está bem interessante para os clientes<br>'
+        } else if (lista.length > 10) {
+            resultado.innerHTML += 'Excelente! Nossa loja está cheia de relíquias incríveis!<br>'
+        }
+    }
+    function pesquisar() {
+        let itemAntiguidade = ipt_antiguidade.value
+        resultado.innerHTML = ''
+        contador = 0
+        for (let i = 0; i < lista.length; i++) {
+
+            if (lista[i] == itemAntiguidade) {
+                contador++
+            }
+
+        }
+        if (contador > 0) {
+            resultado.innerHTML += `Temos o item ${itemAntiguidade} e há ${contador} unidade(s) dele na loja!<br>`
+        }
+        else {
+            resultado.innerHTML += `Não encontramos o item ${itemAntiguidade}, talvez seja hora de procurar essa raridade!`
+        }
+    }
+    function alterar() {
+        let itemAtual = ipt_itematual.value
+        let itemNovo = ipt_novoitem.value
+        if (lista.includes(itemAtual)) {
+            for (let i = 0; i < lista.length; i++) {
+                if (lista[i] == itemAtual) {
+                    lista.splice(i, 1, itemNovo)
+                }
+            }
+            resultado.innerHTML = `O item ${itemAtual} foi atualizado para ${itemNovo}<br>`
+        } else {
+            resultado.innerHTML = `O item ${itemAtual} não foi encontrado na loja<br>`
+        }
+
+    }
+    function remover() {
+        let itemRemovido = ipt_itemremovido.value
+        let encontrou = false
+        if (lista.includes(itemRemovido)) {
+            for (let i = 0; i < lista.length; i++) {
+                if (lista[i] == itemRemovido) {
+                    lista.splice(i, 1)
+                    i--
+                    encontrou = true
+                }
+            }
+            resultado.innerHTML += `O item ${itemRemovido} foi removido do estoque.<br>`
+        } else {
+            resultado.innerHTML += `O item ${itemRemovido} não está em estoque.<br>`
+        }
+    }
+    function duplicados(){
+        let EncontrouDuplicados = false 
+        let vetorDuplicados = []
+        for(let i = 0; i < lista.length; i ++){
+            let duplicados = 0
+            for(let j = 0; j < lista.length; j ++){
+                if(lista[i] == lista[j]){
+                    EncontrouDuplicados = true
+                    duplicados ++
+                }
+            }
+        }   
+        if(duplicados > 0){
+            vetorDuplicados.push(lista[i])
+            resultado.innerHTML+=`${vetorDuplicados} (${duplicados})<br>`
+        }else{
+            resultado.innerHTML+=`Não há itens duplicados do estoque, cada peça é unica!`
+        }
+     }
+</script>
+
+</html>
