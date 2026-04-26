@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="add(5)">Adicionar 5</button>
+    <br><br>
+    <button onclick="add(1)">Adicionar 1</button>
+    <br><br>
+    <button onclick="add(2)">Adicionar 2</button>
+    <br><br>
+    <button onclick="add(3)">Adicionar 3</button>
+    <br><br>
+    <div id="resultado"></div>
+
+</body>
+<script>
+
+    let num = 0;
+    function add(num_add){
+        num += num_add;
+        resultado.innerHTML = ` ***** O valor é ${num} ****`
+    }
+</script>
+</html>

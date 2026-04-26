@@ -110,19 +110,19 @@
         let vetorDuplicados = []
         for(let i = 0; i < lista.length; i ++){
             let duplicados = 0
-            for(let j = 0; j < lista.length; j ++){
+            for(let j = 0; j < lista.length; j ++){     
                 if(lista[i] == lista[j]){
                     EncontrouDuplicados = true
                     duplicados ++
                 }
             }
+            if(duplicados > 0){
+                vetorDuplicados.push(lista[i])
+                resultado.innerHTML+=`${vetorDuplicados} (${duplicados})<br>`
+            }else{
+                resultado.innerHTML+=`Não há itens duplicados do estoque, cada peça é unica!`
+            }
         }   
-        if(duplicados > 0){
-            vetorDuplicados.push(lista[i])
-            resultado.innerHTML+=`${vetorDuplicados} (${duplicados})<br>`
-        }else{
-            resultado.innerHTML+=`Não há itens duplicados do estoque, cada peça é unica!`
-        }
      }
 </script>
 

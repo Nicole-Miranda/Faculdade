@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    //Gera um número de 0 a 1
+    //onde 0 é inclusivo, e 1 exclusivo
+    //ou seja, 0 até 0.99999999.....
+
+    let aleatorio = (Math.random());
+    console.log(`Número aleatório: ${aleatorio}`);
+
+    //Com intervalo:
+    let min = 3;
+    let max = 7;
+    let aleatorio_teste = 0.1;
+
+    console.log(`Número teste: ${aleatorio_teste}`);
+
+    let aleatorio_intervalo = parseInt(aleatorio_teste * (max - min + 1) + min);
+    console.log(`Número aleatório com intervalo: ${aleatorio_intervalo}`);
+</script>
+
+</html>

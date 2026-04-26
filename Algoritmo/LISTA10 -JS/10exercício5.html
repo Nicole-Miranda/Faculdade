@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="jogar()">Jogar</button>
+    <div id="resultado"></div>
+    <img src="" alt="">
+</body>
+<script>
+    function jogar(){
+        let jogador1 = parseInt(Math.random() * 3) + 1
+        let jogador2 = parseInt(Math.random() * 3) + 1
+        let vetor = [pedra, papel, tesoura]
+        contador = 0
+
+        if(jogador1[1] && jogador2[2]){
+            resultado.innerHTML+=`O jogador2 venceu!<br>`
+            resultado.innerHTMl+=`jogador2:`
+        }else if(jogador1[2] && jogador2[3]){
+            resultado.innerHTML=`O jogador2 venceu `
+        }
+
+    }
+</script>
+</html>
