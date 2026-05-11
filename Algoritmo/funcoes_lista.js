@@ -44,4 +44,26 @@ function adicionarNoInicio(lista, elemento){
     }
 
     return nova_lista
+} 
+
+function alterarLista (lista, indice, quantidade, novoElemento){
+
+let nova_lista = []
+let tamanho_original = 0
+
+for (let i = 0; i < indice; i ++){
+    nova_lista[nova_lista.length] = lista[i];
+}
+
+if(novoElemento !== undefined){
+    nova_lista[nova_lista.length] = novoElemento;
+}
+
+let proximo_indice = indice + quantidade;
+
+for(let i = proximo_indice; i < quantidade.length; i++){
+    nova_lista[nova_lista.length] = lista[i]
+}
+
+return nova_lista;
 }

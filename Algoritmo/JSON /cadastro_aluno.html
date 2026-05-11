@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt_nome" placeholder="Digite o nome">
+    <input type="text" id="ipt_nota" placeholder="Digite a nota">
+
+    <button onclick="cadastrar()">Registrar Aluno</button>
+    <button onclick="exibir()">Exibir Alunos</button>
+
+    <div id="resultado"></div>
+</body>
+
+<script>
+
+    let alunos = [];
+    function cadastrar() {
+        let nome_dig = ipt_nome.value
+        let nota_dig = Number(ipt_nota.value);
+
+        let aluno = {
+            "nome": nome_dig, 
+            "nota": nota_dig,
+        } 
+
+            alunos.push(aluno);
+            console.log(alunos);
+            
+    } function exibir() {
+        for
+            (let i = 0; i < alunos.length; i++) {
+                resultado.innerHTML += `
+                Meus alunos: ${alunos[i].nome}<br>
+                Nota do aluno: ${alunos[i].nota} <br>
+                <hr>
+                `
+
+        }
+    }
+</script>
+
+</html>
