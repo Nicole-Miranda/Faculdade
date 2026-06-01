@@ -1,0 +1,8 @@
+.tudo .titulo{
+    text-align: center;
+}
+
+.titulo .botao{
+    display: flex;
+    justify-content: center;
+}

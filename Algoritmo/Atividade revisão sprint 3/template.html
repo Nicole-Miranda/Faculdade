@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartoon Tech</title>
+</head>
+
+<body>
+  <h2>Buscar Desenhos:</h2>
+
+  <span>Desenhos Cadastrados:</span>
+  <button onclick="exibirTodos()">Exibir Todos</button> <br>
+
+  <span>Nome:</span>
+  <input type="text" id="ipt_nome">
+  <button onclick="pesquisarPorNome()">Pesquisar por Nome</button><br>
+
+  <span>Ano:</span>
+  <select id="ipt_ano_parametro">
+    <option value="maior_igual">&gt;=</option>
+    <option value="igual">==</option>
+    <option value="menor_igual">&lt;=</option>
+  </select>
+  <input type="number" id="ipt_ano">
+  <button onclick="pesquisarPorAno()">Pesquisar por Ano</button><br>
+
+  <span>Episódio:</span>
+  <input type="text" id="ipt_episodio">
+  <button onclick="pesquisarPorEpisodio()">Pesquisar por Episódio</button> <br>
+
+  <span>Maior Doação:</span>
+  <button onclick="pesquisarMaiorDoacao()">Pesquisar Maior Doação</button><br>
+
+  <span>Resumo de Doações:</span>
+  <button onclick="exibirEstatisticasDoacoes()">Exibir Estatísticas</button><br>
+
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script src="dados.js"></script>
+<script>
+  function exibirTodos() {
+
+
+    for (let i = 0; i < desenhos.length; i++) {
+      div_resultado.innerHTML += `<br>${desenhos[i].nome} <br>`
+      div_resultado.innerHTML += `<br>${desenhos[i].criador} <br>`
+      div_resultado.innerHTML += `<br>${desenhos[i].ano} <br>`
+      div_resultado.innerHTML += `<br>${desenhos[i].episodios} <br>`
+      div_resultado.innerHTML += `<br>${desenhos[i].doacoes} <br>`
+
+    }
+
+  }
+
+  function pesquisarPorNome() {
+    let pesquisa_nome = ipt_nome.value
+    pesquisar_nome = pesquisa_nome.toUpperCase()
+
+    for (let i = 0; i < desenhos.length; i++) {
+
+      if (desenhos[i].nome.toUpperCase().includes(pesquisa_nome)) {
+
+        div_resultado.innerHTML += `<br> ${desenhos[i].nome}`
+      }
+
+
+
+    }
+  }
+
+  function pesquisarPorAno() {
+    let anoPesquisa = Number(ipt_ano.value)
+    let anoparam = ipt_ano_parametro.value
+
+
+    for (let i = 0; i < desenhos.length; i++) {
+
+      if (anoparam == 'igual' && desenhos[i].ano == anoPesquisa) {
+
+        div_resultado.innerHTML += `${desenhos[i].ano}`
+
+      } else if (anoparam == 'maior_igual' && desenhos[i].ano >= anoPesquisa) {
+
+        div_resultado.innerHTML += `${desenhos[i].ano}`
+
+      } else if (anoparam == 'menor_igual' && desenhos[i].ano <= anoPesquisa) {
+
+        div_resultado.innerHTML += `${desenhos[i].ano}`
+      }
+    }
+    //Voltar aqui!
+
+  }
+
+  function pesquisarPorEpisodio() {
+    let pesquisar_episodio = ipt_episodio.value
+    pesquisar_episodio = pesquisar_episodio.toUpperCase()
+
+    for (let i = 0; i < desenhos.length; i++) {
+
+      if (desenhos[i].episodios.toUpperCase().includes(pesquisar_episodio)) {
+
+        div_resultado.innerHTML += `<br> ${desenhos[i].episodios}`
+      }
+
+    }
+
+  }
+
+  function pesquisarMaiorDoacao() {
+
+    let maiorDoacao = -1
+    let desenhoMaiorDoacao = 0
+
+    for (let i = 0; i < desenhos.length; i++) {
+      let desAtual = desenhos[i]
+      console.log('desenho atual', desAtual)
+      let somaDoacoes = 0
+
+      for (let j = 0; j < desAtual.doacoes.length; j++) {
+        let doacaoAtual = desAtual.doacoes[j]
+        console.log('doação atual', doacaoAtual)
+        somaDoacoes += doacaoAtual;
+        console.log(somaDoacoes);
+      }
+
+      if (somaDoacoes > maiorDoacao) {
+        maiorDoacao = somaDoacoes
+        desenhoMaiorDoacao = desAtual
+      }
+
+    }
+
+    div_resultado.innerHTML = `Maior doação: ${maiorDoacao} <br>
+    Desenho com maior doação: ${desenhoMaiorDoacao}`
+  }
+
+  function exibirEstatisticasDoacoes() {
+
+    let somaGeral = 0
+    let totalDoacoes = 0
+    let desenhoMaiorTotal = null
+
+    for (let i = 0; i < desenhos.length; i++) {
+      let somaDoacoesDesenho = 0
+
+      for (let j = 0; j < desenhos[i].doacoes.length; j++) {
+        somaDoacoesDesenho += desenhos[i].doacoes[j]
+        totalDoacoes++
+      }
+
+      somaGeral += somaDoacoesDesenho
+
+    }
+
+    if (somaDoacoesDesenho > maiorTotal) {
+      maiorTotal = somaDoacoesDesenho
+      desenhoMaiorTotal = desenhos[i]
+    }
+
+    let media = somaGeral / totalDoacoes
+
+    div_resultado.innerHTML = ` Média de doações entre todos os desenhos: R$${media.toFixed(2)}<br>
+    Desenho com mais doações: ${desenhoMaiorTotal.nome}
+`
+  }
+
+
+</script>

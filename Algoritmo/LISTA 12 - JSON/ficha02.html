@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto no Carrinho</title>
+</head>
+<body>
+    <h1>Produto no Carrinho</h1>
+    <button onclick="exibir">Exibir valor total</button>
+    <div id="resultado"></div>
+
+</body>
+<script>
+    let muitosProdutos =[]
+
+
+    let produto ={
+        "Nome": "Caderno",
+        "Preco": 15.00,
+        "Quantidade": 3
+    }
+    muitosProdutos.push(produto)
+
+    resultado.innerHTML = `Produto:${produto.Nome}, Preço: ${produto.Preco}, 
+    Quantidade: ${produto.Quantidade}, Total: ${Number(produto.Preco) * Number(produto.Quantidade)} reais.`
+    
+</script>
+</html>
