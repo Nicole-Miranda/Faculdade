@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simulador de Preço do Bilhete Ùnico de Sâo Paulo</h1><br><br>
+    <label>Tipo passageiro</label>
+    <select id="Tipo_passageiro">
+        <option value="comum">Comum</option>
+        <option value="estudante">Estudante</option>
+        <option value="idosoPNE">Idoso/PNE</option>
+    </select>
+    <br><br>
+    <label>Tipo passagem</label>
+    <select id="tipo_passagem">
+        <option value="unica">Passagem Unica</option>
+        <option value="integracao">Passagem Integração</option>
+    </select>
+    <br><br>
+    <button onclick="simular()">Simular preço</button>
+    <div id="mensagem"></div>
+</body>
+<script>
+    function simular(){
+
+        let passageiro = Tipo_passageiro.value
+        let passagem = tipo_passagem
+        valor = 0
+
+        if(passagem == "Passagem Unica"){
+           valor = 4.40
+
+
+        }else if(passagem=="Passagem Integração"){
+            valor = 5.90
+
+        }
+        
+        if((passageiro == "Comum" && passagem == "Passagem Unica")||(passageiro=="Comum" && passagem=="Passagem Integração")){
+            Unica = 4.40
+            integracao = 5.90
+
+        }else if((passageiro=="Estudante" && passagem=="Passagem Unica")||(passageiro =="Comum" && passagem == "Passagem Integração")){
+            Unica = 4.40/2
+            integracao = 5.90/2
+            
+        }if((passageiro =="Idoso/PNE" && passagem =="Passagem Unica")||(passageiro=="Idoso/PNE" && passagem=="Passagem Integração")){
+            valor =o
+        }
+        mensagem.innerHTML=`Valor passagem escolhida:R$${valor}`
+        
+    }
+</script>
+</html>

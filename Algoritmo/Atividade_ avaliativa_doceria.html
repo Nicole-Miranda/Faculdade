@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Quantidade de macarons vendidos</label>
+    <input type="text" id="ipt_quantidadeMacaron">
+    <br><br>
+    <label>Quantidade de brigadeiros vendidos</label>
+    <input type="text" id="ipt_quantidadeBrigadeiro">
+    <br><br>
+    <label>Quantidade de cupcakes vendidos</label>
+    <input type="text" id="ipt_quantidadeCupcakes">
+    <br><br>
+    <label>Quantidade de Cheesecakes vendidos</label>
+    <input type="text" id="ipt_quantidadeCheescakes">
+    <br><br>
+    <label>Preço da unidade de Macarons</label>
+    <input type="text" id="ipt_precoMacaron">
+    <br><br>
+    <label>Preço da unidade de Brigadeiro</label>
+    <input type="text" id="ipt_precoBrigadeiro">
+    <br><br>
+    <label>Preço da unidade de Cupcakes</label>
+    <input type="text" id="ipt_precoCupcakes">
+    <br><br>
+    <label>Preço da unidade de Cheesecake </label>
+    <input type="text" id="ipt_precoCheescake">
+    <br><br>
+    <button onclick="exibir()">Verificar Vendas</button>
+    <div id="resultado"></div>
+   
+</body>
+<script>
+    function exibir(){
+        let quantidadeMacaron = Number(ipt_quantidadeMacaron.value)
+        let quantidadeBrigadeiro = Number(ipt_quantidadeBrigadeiro.value)
+        let quantidadeCupcake = Number(ipt_quantidadeCupcakes.value)
+        let quantidadeCheescake = Number(ipt_quantidadeCheescakes.value)
+        let valorMacaron = Number(ipt_precoMacaron.value)
+        let valorBrigadeiro = Number(ipt_precoBrigadeiro.value)
+        let valorCupcake = Number(ipt_precoCupcakes.value)
+        let valorCheescake = Number(ipt_precoCheescake.value)
+        let macarons = '<img src="https://p.turbosquid.com/ts-thumb/ep/GPmczg/M2ntj2hX/pinkmacaron3dsmodel000/jpg/1512423831/600x600/fit_q87/3e27e13637b41c2dc4b1bc7ff30218f9cec9063b/pinkmacaron3dsmodel000.jpg" alt="macaronrosa" style = "width: 100px">' 
+        let brigadeiro = '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-thQw_KIpUi6JGgOWqS-tmuSs6QeJRu_y_w&s" alt="brigadeiro" style = "width: 100px">' 
+        let cupcakes = '<img src="https://img.freepik.com/psd-gratuitas/um-delicioso-cupcake-rosa-com-salpicaduras-de-arco-iris_632498-25182.jpg?semt=ais_hybrid&w=740&q=80" alt="cupcake" style = "width: 100px">'
+        let cheesecake = '<img src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/8fafc3935c766bf8c9f1331a325e48a9.jpg" alt="cheescake" style = "width: 100px">'
+        
+        if((valorMacaron>=0) || (valorBrigadeiro>=0) || (valorCupcake>=0) || (valorCheescake>=0)){
+
+            
+            let contador = 1
+            for (let i = 0; i < quantidadeMacaron; i ++){
+                
+                resultado.innerHTML+=`Número da venda: ${contador} ${macarons} VALOR UNITÁRIO:${valorMacaron}<br>`
+                contador++
+            }
+            
+            for(let j = 0; j < quantidadeBrigadeiro; j ++){
+                
+                resultado.innerHTML+=`Número da venda: ${contador} ${brigadeiro} VALOR UNITÁRIO:${valorBrigadeiro}<br>`
+                contador ++
+            }
+            for(let n = 0;n < quantidadeCupcake; n ++){
+                
+                resultado.innerHTML+=`Número da venda: ${contador} ${cupcakes} VALOR UNITÁRIO:${valorCupcake}<br>`
+                contador ++
+            }
+            for( let h = 0; h < quantidadeCheescake; h ++){
+                resultado.innerHTML+=`Número da venda: ${contador} ${cheesecake} VALOR UNITÁRIO:${valorCheescake}<br>`
+                contador ++
+            }
+            resultado.innerHTML +=`<br> Com a quantidade de ${quantidadeMacaron} Macarons, ${quantidadeBrigadeiro} Brigadeiros, ${quantidadeCupcake} Cupcakes e ${quantidadeCheescake} Cheesecakes, a venda totalizará ${quantidadeBrigadeiro * valorBrigadeiro
+            + quantidadeMacaron * valorMacaron + quantidadeCheescake * valorCheescake + quantidadeCupcake * valorCupcake} reais`
+        }else{
+            resultado.innerHTML="Insira um valor válido!"
+        }
+            
+            
+}
+</script>
+</html>

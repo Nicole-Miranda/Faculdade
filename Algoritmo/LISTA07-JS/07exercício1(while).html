@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Quantas pessoas vão entrar no carro?</label>
+    <input type="text" id="ipt_pessoasCarro">
+    <br><br>
+    <label>Capacidade de passageiros que o veículo suporta</label>
+    <input type="text" id="ipt_capacidade">
+    <br><br>
+    <button onclick="exibir()">#PartiuCarona</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    function exibir() {
+        resultado.innerHTML = ""
+        let passageiros = Number(ipt_pessoasCarro.value)
+        let capacidade = Number(ipt_capacidade.value)
+        let contador = 1
+
+        while (contador <= passageiros) {
+
+            if (contador == 1) {
+                resultado.innerHTML += `Entrou o ${contador}° passageiro, (que é o(a) motorista)<br>`
+            }else{
+                resultado.innerHTML+=`Entrou o ${contador}° passageiro<br>`
+            }
+            if (contador > capacidade) {
+                resultado.innerHTML += `O ${contador}° passageiro terá que esperar!<br>`
+            }
+
+            contador++
+        }
+    }   
+</script>
+
+</html>

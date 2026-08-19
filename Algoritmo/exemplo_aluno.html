@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_aluno">
+    <button onclick="addAluno(alunos, 'ian')">Adicionar aluno</button>
+    <br><br>
+    <button onclick="removeralunos()">Remover Ultimo Aluno</button>
+    <br><br>
+    <button onclick="removerAlunoIncio()">Remover Aluno no Inicio</button>
+    <br><br>
+    <input type="text" id="ipt_adicionar">
+    <button onclick="adicionarAluno()">Adicionar aluno</button>
+</body>
+
+<script src="funcoes_lista.js"></script>
+<script>
+    let alunos = ['tom','bob','dan']
+    function addAluno(){
+        console.log(`Lista de alunos antes ${alunos}`)
+        let aluno_add = ipt_aluno.value;
+
+        alunos_novo = adicionarNofinal(alunos, aluno_add);
+        alunos = alunos_novo;
+
+         console.log(`Lista de alunos depois ${alunos}`)
+    }
+
+    function removeralunos(){
+        let alunos_apos_remover = removerDoFinal(alunos)
+        alunos = alunos_apos_remover;
+        console.log(alunos)
+
+    }
+    function removerAlunoIncio(){
+        let alunos_apos_remover_inicio = removerPrimeiroElemento(alunos)
+        alunos = alunos_apos_remover_inicio;
+        console.log(alunos)
+    }
+    function adicionarAluno(){
+        let alunos_adicionado = adicionarNoInicio(alunos)
+        alunos = alunos_adicionado;
+        console.log(alunos)
+    }
+
+    
+
+
+</script>
+</html>

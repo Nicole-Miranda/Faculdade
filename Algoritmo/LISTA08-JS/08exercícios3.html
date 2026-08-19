@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="algo()">"Diga algo sobre a matéria de Algoritmos"</button>
+    <label>Digite uma frase</label>
+    <input type="text" id="ipt_frase">
+    <div id="resultado"></div>
+</body>
+<script>
+    function algo(){
+        resultado.innerHTML=""
+        let contador = 0
+
+        while(contador<7){
+            resultado.innerHTML +=`${contador + 1}. ${ipt_frase.value}<br>`
+
+            contador ++
+        }
+    }
+</script>
+</html>

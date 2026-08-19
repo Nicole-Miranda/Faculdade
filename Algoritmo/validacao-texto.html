@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_texto">
+    <button onclick="validar()">Validar frase</button>
+</body>
+<script>
+    function validar(){
+        let frase = ipt_texto.value;
+
+        let contem_bob_inicio = frase.startsWith("Bob")
+        console.log(`O texto começa com Bob? ${contem_bob_inicio}`);
+
+        let contem_bob_fim = frase.endsWith("Bob");
+        console.log(`O texto termina com Bob? ${contem_bob_fim}`);
+
+        let cpf_limpo = frase.trim();
+        console.log(`Exemplo CPF original: ${frase}`);
+        console.log(`Exemplo CPF tratado ${frase}`);
+
+        let tamanho_frase = frase.length 
+        console.log(`O tamanho da frase é ${tamanho_frase}`);
+
+        // 
+        let procurar = "_"
+        frase.replace(procurar, ".")
+        frase.replace(",",".")
+
+        let ultima_letra = frase[tamanho_frase - 1];
+        console.log(`Ultima letra:${ultima_letra}`);
+
+        let indice_oi = frase.indexOf("oi");
+        console.log(`A palavra oi foi encontrado na posição: ${indice_oi}`);
+
+        let frase_caixa_alta = frase.toUpperCase();
+        console.log(`Frase GRITANDO: ${frase_caixa_alta}`)
+
+        let frase_caixa_baixa = frase.toLowerCase();
+        console.log(`Agora tudo minusculo:${frase_caixa_baixa}`);
+
+    }
+</script>
+</html>

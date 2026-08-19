@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas xícaras de café com leite já tomou na vida? <input type="text" id="qtd_cafe">
+
+    <button onclick="analisar()">Ver a quantidade</button>
+
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        resultado.innerHTML = "";
+
+        let mensagem_cafe = "";
+        let contador = 0;
+        while (contador < qtd_cafe.value) {
+            resultado.innerHTML += " <i>colher de leite em pó<i>";
+            mensagem_cafe += " <i>colher de café<i>";
+            contador ++;
+        }
+
+        resultado.innerHTML += "<br><br>" + mensagem_cafe + mensagem_cafe;
+    }
+</script>

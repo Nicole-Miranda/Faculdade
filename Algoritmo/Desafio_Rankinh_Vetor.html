@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Palpite 01</label>
+    <input type="text" id="ipt_1lugar">
+    <br><br>
+    <label>Palpite 02</label>
+    <input type="text" id="ipt_2lugar"> 
+    <br><br>
+    <label>Palpite 03</label>
+    <input type="text" id="ipt_3lugar">
+    <br><br>
+    <label>Palpite 04</label>
+    <input type="text" id="ipt_4lugar">
+    <br><br>
+    <label>Palpite 05</label>
+    <input type="text" id="ipt_5lugar">
+    <br><br>
+    
+    <button onclick="exibir()">Exibir resultado</button>
+    <br><br>
+    <label>Nome do campeão</label>
+    <input type="text" id="ipt_campeao">
+    <br><br>
+    <button onclick="adicionar()">Adicionar</button>
+    <br><br>
+    <div id="lista"></div>
+
+    <label>Buscar campeão</label>
+    <input type="text" id="ipt_busca">
+    <br><br>
+    <button onclick="buscar()">Pesquisar</button>
+
+    <div id="resposta"></div>
+    <div id="resultado"></div>
+</body>
+<script>
+    function exibir(){
+        let vencedores = ["a","b","c","d","e"]
+        let palpite1 = ipt_1lugar.value
+        let palpite2 = ipt_2lugar.value
+        let palpite3 = ipt_3lugar.value
+        let palpite4 = ipt_4lugar.value
+        let palpite5 = ipt_5lugar.value
+        let acertos = 0
+        let erros = 0
+        let totalAcertos = acertos 
+        let totalErros = erros
+        let nomeAcerto = []
+        let nomeErro = []
+
+        if(palpite1 == vencedores[0]){
+            acertos +=  1
+            nomeAcerto.push(palpite1)
+
+        }else{
+            
+            nomeErro.push(palpite1)
+
+        }
+        if(palpite2 == vencedores[1]){
+            acertos += 1
+            nomeAcerto.push(palpite2)
+
+        }else {
+            
+            nomeErro.push(palpite2)
+        }
+        if(palpite3 == vencedores[2]){
+            acertos += 1
+            nomeAcerto.push(palpite3)
+
+        }else{
+        
+            nomeErro.push(palpite3)
+
+        }if(palpite4 == vencedores [3]){
+            acertos += 1
+            nomeAcerto.push(palpite4)
+
+        }else{
+            
+            nomeErro.push(palpite4)
+
+        }if(palpite5 == vencedores[4]){
+            acertos += 1
+            nomeAcerto.push(palpite5)
+            
+        }else{
+            
+            nomeErro.push(palpite5)
+        }
+        
+        if(totalAcertos>3){
+            resultado.innerHTML+="Você conhece bem essa competição <br>"
+
+        }else{
+            resultado.innerHTML+="Você precisa acompanhar mais essa competição <br>"
+        }
+
+        resultado.innerHTML=`Você teve um total de ${acertos} acerto(s) e um total de ${5 - acertos} erro(s)
+        e você acertou os nome(s) ${nomeAcerto} e errou os nomes ${nomeErro}`
+
+       resultado.innerHTML+=`<br> <br> 1° COLOCADO: ${vencedores[0].toUpperCase()}!`
+
+    }
+
+    
+    let campeoes = []
+
+    function adicionar(){
+        let nome = ipt_campeao.value
+
+        campeoes.push(nome)
+
+        lista.innerHTML = ""
+
+        
+        if(campeoes[0] != undefined){
+            lista.innerHTML += campeoes[0] + "<br>"
+        }
+        if(campeoes[1] != undefined){
+            lista.innerHTML += campeoes[1] + "<br>"
+        }
+        if(campeoes[2] != undefined){
+            lista.innerHTML += campeoes[2] + "<br>"
+        }
+        if(campeoes[3] != undefined){
+            lista.innerHTML += campeoes[3] + "<br>"
+        }
+        if(campeoes[4] != undefined){
+            lista.innerHTML += campeoes[4] + "<br>"
+        }
+    }
+
+    function buscar(){
+        let nomeBusca = ipt_busca.value
+
+        let ranking = ["a","b","c","d","e"]
+
+        let estaUsuario = false
+        let estaSistema = false
+
+        
+        if(nomeBusca == campeoes[0]){  
+         estaUsuario = true   
+        } 
+        if(nomeBusca == campeoes[1]) {
+            estaUsuario = true
+        }
+        if(nomeBusca == campeoes[2]) {
+            estaUsuario = true
+        }
+        if(nomeBusca == campeoes[3]) {
+            estaUsuario = true
+        }
+        if(nomeBusca == campeoes[4]) {
+            estaUsuario = true
+        }
+
+        
+        if(nomeBusca == ranking[0]) {
+        estaSistema = true
+        }
+        if(nomeBusca == ranking[1]) {
+        estaSistema = true}
+        if(nomeBusca == ranking[2]) {
+        estaSistema = true}
+        if(nomeBusca == ranking[3]) {
+        estaSistema = true
+        }
+        if(nomeBusca == ranking[4]) {
+            estaSistema = true
+        }
+        
+        if(estaUsuario && estaSistema){
+            resposta.innerHTML = "Está na lista do usuário e no ranking oficial"
+        } 
+        else if(estaUsuario){
+            resposta.innerHTML = "Está apenas na lista do usuário"
+        } 
+        else if(estaSistema){
+            resposta.innerHTML = "Está apenas no ranking oficial"
+        } 
+        else{
+            resposta.innerHTML = "Não está em nenhuma das listas"
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caça tesouro</title>
+</head>
+<label for="">Insira onde você quer iniciar o seu jogo</label>
+<br><br>
+<span>Linha</span><input type="text" id="ipt_linha">
+<span>coluna</span><input type="text" id="ipt_coluna">
+<button onclick="iniciar()">Iniciar</button>
+
+<body>
+    <h1>Caça Tesouro</h1>
+    <div id="resultado"></div>
+</body>
+<script>
+    let tesouro = 0;
+    let armadilha = 0;
+    let espacoVazio = 0;
+    let partida = 0
+    let rodada = []
+    
+    let matriz = [
+        [0, -1, 1],  // 0 --> Espaço vazio
+        [-1, 0, 1],  // 1 --> Tesouro
+        [0, 0, 0],   // -1 --> Armadilha
+        [-1, 0, 0],
+        [1, 0, 1]
+    ]
+    function iniciar() {
+        if(armadilha > 0){
+           resultado.innerHTML = `Você caiu em uma armadilha!` 
+           return
+        }
+        
+        let pontuacao = 10 * tesouro
+        let linha = Number(ipt_linha.value)
+        let coluna = Number(ipt_coluna.value)
+
+        let valorEncontrado = matriz[linha - 1][coluna - 1];
+        console.log(valorEncontrado)
+
+        resultado.innerHTML = ``
+        if (valorEncontrado == 0) {
+            espacoVazio++
+            resultado.innerHTML = `Espaço Vazio`
+        } else if (valorEncontrado == 1) {
+            tesouro++
+            pontuacao += 10
+            resultado.innerHTML=`Achou tesouro!!`
+          
+        } else {
+            armadilha++
+            partida++
+            rodada.push([pontuacao, partida])
+            tesouro = 0
+            espacoVazio = 0
+            armadilha = 0
+            resultado.innerHTML = `Você caiu em uma armadilha!`
+        }
+
+        
+        let classificacao = []
+        
+        if (tesouro == 4) {
+            resultado.innerHTML=``
+            
+            
+            resultado.innerHTML = `Parabéns você ganhou essa ${partida} partida!!`
+            partida++
+            rodada.push([pontuacao, partida])
+            tesouro = 0
+            espacoVazio = 0
+            armadilha = 0
+            console.log('blib-blib-blub-blib');
+            console.log(partida);
+            
+        }
+    
+        if (partida == 3) {
+            console.log("ESTÀ PASSANDO NO IF PARTIDA???");
+            
+            resultado.innerHTML = `JOGO FINALIZADO!`
+        }
+
+        let ranking = []
+
+        for (let i = 0; i < rodada.length; i++) {
+            
+            
+        }
+
+
+
+
+    }
+
+
+
+</script>
+
+</html>

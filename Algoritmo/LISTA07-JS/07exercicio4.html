@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Quantos cafés com leite você tomou na vida?</h1>
+    <label>Quantidade Café</label>
+    <input type="text" id="ipt_cafe">
+    <br><br>
+    <button onclick="Quantidade()">Ver quantidade</button>
+    <br><br>
+    <div id="resultado"></div>
+    <img src="" alt="">
+</body>
+<script>
+    function Quantidade(){
+        let xícara = Number(ipt_cafe.value)
+        for(let i = 1; i<=xícara ; i ++){
+            resultado.innerHTML+=`<img src="https://minhasaude.proteste.org.br/wp-content/uploads/2023/06/colher-carregando-punhado-de-leite-em-po-sobre-fundo-branco.jpg" alt="colher pó" width="100">`
+        } 
+        for(let i = 1; i<(xícara * 2); i ++){
+            resultado.innerHTML+=` <img src="https://www.casadaporcelana.com.br/public/produtos/919/2287-classic-colher-cafe-tramontina_g.jpg" alt="imagecafé" width="100">`
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>O CANTO DA SUA TORICDA</h1>
+    <br>
+    <label>Qual dos times paulistas você torce?</label>
+    <input type="text" id="id_time">
+    <br>
+    <button onclick="times_paulistas()">Fale sobre esse time</button>
+    <div id="paulistas"></div>
+</body>
+<script>
+    function times_paulistas(){
+
+        let times = id_time.value
+
+        if(times == "Corinthians"){
+
+            paulistas.innerHTML="Salve o Corinthians" 
+        } else if(times =="Palmeiras"){
+
+            paulistas.innerHTML="Salve o alviverde imponente"
+        } else if(times =="Santos"){
+
+            paulistas.innerHTML="Agora quem dá Bola é o Santos"
+        }else if(times =="São Paulo"){
+
+            paulistas.innerHTML+"Salve o Tricolor Paulista"
+        } else{
+            paulistas.innerHTML+"Insira somente times paulistas!"
+        }
+
+
+     }
+</script>
+</html>

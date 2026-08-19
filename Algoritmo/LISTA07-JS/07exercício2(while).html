@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Quantas Coca-cola's você acha que bebeu na vida?</label>
+    <input type="text" id="ipt_quantidade">
+    <br><br>
+    <button onclick="exibir()">Ver quantidade</button>
+    <div id="resultado"></div>
+  
+</body>
+<script>
+    function exibir() {
+        resultado.innerHTML=''
+        let quantidade = Number(ipt_quantidade.value)
+        let contador = 1
+
+        while (contador <= quantidade) {
+            resultado.innerHTML += `<img src="https://coopsp.vtexassets.com/arquivos/ids/249034-800-auto?v=638937344512000000&width=800&height=auto&aspect=true" alt="Cocacola">`
+
+            contador++
+        }
+
+    }
+</script>
+
+</html>

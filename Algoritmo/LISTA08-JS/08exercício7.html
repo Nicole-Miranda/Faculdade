@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Insira um número entre 0 e 200</label>
+    <input type="text" id="ipt_numero">
+    <button onclick="clicar()">Viva o 7</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    function clicar(){
+        resultado.innerHTM=""
+        let numero = Number(ipt_numero.value)
+        let contador = 0
+
+        if(numero >=0 && numero <= 200){
+            while(contador <= numero){
+            if(contador % 7 == 0){
+                resultado.innerHTML=`${contador}<br>`
+                contador ++
+             }
+          }
+        }
+    }
+</script>
+</html>

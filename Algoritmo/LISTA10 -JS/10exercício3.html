@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="jogar()">Jogar dado</button>
+    <div id="resultado"></div>
+    <style>
+        #resultado {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            color: #fff;
+        }
+    </style>
+</body>
+<script>
+    function jogar(){
+       let max = 20;
+       let min = 0;
+       let aleatorio_teste = 0.1
+       
+       let aleatorio_intervalo = parseInt(aleatorio_teste * (max - min + 1) + min);
+
+       resultado.innerHTML+=`${aleatorio_intervalo}`
+    }
+</script>
+</html>
