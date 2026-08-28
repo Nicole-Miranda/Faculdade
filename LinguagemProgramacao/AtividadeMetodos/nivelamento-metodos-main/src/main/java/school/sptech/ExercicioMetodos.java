@@ -68,6 +68,26 @@ public class ExercicioMetodos {
         return resultadoBalas;
     }
 
+<<<<<<< HEAD
+=======
+    public boolean verificarPalindromo(String palavra) {
+
+        String tratada = palavra.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        int inicio = 0;
+        int fim = tratada.length() - 1;
+
+        while (inicio < fim) {
+            if (tratada.charAt(inicio) != tratada.charAt(fim)) {
+                return false;
+            }
+            inicio++;
+            fim--;
+        }
+
+        return true;
+    }
+>>>>>>> d58c25db9dcfcaf41c6e6c8954418965d9c8ab4d
 
 
 }
