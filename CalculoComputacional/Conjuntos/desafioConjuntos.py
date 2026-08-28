@@ -1,5 +1,0 @@
-corretora_agora = set(['Itaúsa','Ecorodovias','Taesa','B3','Vale',])
-corretora_ativa = set(['B3','Bradesco','BB Seguridade','Taesa','BR Distribuidora','Taesa','CTEEP','Vale','Telefônica Brasil',])
-corretora_genial = set(['CPFL','Minerva','Cyrela','Randon','CTEEP',])
-corretora_easynvest = set(['B3','Minerva','Brasil Agro','Coca-cola','Taesa','Vale','Copel','Itaúsa','Ambev'])
-corretora_elite = set(['Bradesco','BB Seguridade','Banrisul','Engie','Itaúsa','Senepar','Taesa','CTEEP','Telefônica Brasil','Vale'])
