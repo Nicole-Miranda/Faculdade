@@ -18,7 +18,7 @@ public class ExercicioVetores {
         Double somaTotal = 0.0;
         int quantidade = notas.length;
         for (int i = 0; i < notas.length; i++) {
-            somaTotal += notas[i];
+            somaTotal + = notas[i];
         }
 
         Double media = somaTotal/quantidade;

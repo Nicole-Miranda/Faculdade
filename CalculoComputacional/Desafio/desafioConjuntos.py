@@ -76,6 +76,47 @@ for nome, conjunto in corretoras_dict.items():
     else:
         print(f'{nome} não tem ações exclusivas.')
 
+        if agora ^ ativa ^ elite ^ easynvest:
+         acoes_unicas = agora ^ ativa ^ elite ^ easynvest
+    print(f"A(s) ação(ões) única(s) das 4 corretoras escolhidas são: {acoes_unicas}!")
+else:
+    print("Não há nenhuma ação única nas 4 corretoras escolhidas.")
+
+print(agora.issubset(ativa))
+print(agora.issubset(elite))
+print(agora.issubset(easynvest))
+print(agora.issuperset(ativa))
+print(agora.issuperset(elite))
+print(agora.issuperset(easynvest))
+
+print(ativa.issubset(agora))
+print(ativa.issubset(elite))
+print(ativa.issubset(easynvest))
+print(ativa.issuperset(agora))
+print(ativa.issuperset(elite))
+print(ativa.issuperset(easynvest))
+
+print(elite.issubset(agora))
+print(elite.issubset(ativa))
+print(elite.issubset(easynvest))
+print(elite.issuperset(agora))
+print(elite.issuperset(ativa))
+print(elite.issuperset(easynvest))
+
+print(easynvest.issubset(agora))
+print(easynvest.issubset(ativa))
+print(easynvest.issubset(elite))
+print(easynvest.issuperset(agora))
+print(easynvest.issuperset(ativa))
+print(easynvest.issuperset(elite))
+
+print("Não há subsets e nem supersets entre as 4 corretoras escolhidas.")
+
+print(f"Ação(ões) única(s) da Easynvest: {easynvest ^ (agora.union(ativa, elite))}")
+print(f"Ação(ões) única(s) da Elite: {elite ^ (agora.union(ativa, easynvest))}")
+print(f"Ação(ões) única(s) da Ativa: {ativa ^ (agora.union(elite, easynvest))}")
+print(f"Ação(ões) única(s) da Ágora: {agora ^ (ativa.union(elite, easynvest))}")
+
 
 
 
