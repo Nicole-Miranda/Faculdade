@@ -1,7 +1,7 @@
 data("mtcars")
 
 min(mtcars$hp)
-max(mtcars$)
+
 
 
 mtcars$PotenciaOrdenada <- factor(
@@ -58,10 +58,19 @@ hist(mtcars$wt,
      col = "purple"
      )
 
+hist(mtcars$hp,
+     main = "Histograma HP",
+     xlab = "Horse power",
+     ylab = "Frequência(quantidade de carros)",
+     col = "red"
+)
+
 
 
 barplot(table(mtcars$cyl), 
         main="Cilindros (cyl)", 
+        xlab = "quantidade de cilindros",
+        ylab = "Frequência (quantidade de carros)",
         col="skyblue"
         )
 
