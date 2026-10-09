@@ -1,5 +1,5 @@
 
-#--------------------------------IMC BASEADO EM DADOS BRASILEIROS-------------------------------------
+#--------------------------------IMC BASEADO EM DADOS BRASILEIROS-----------------------------------
 
 media_imc <- 26.5
 desvio_padrao_imc <- 4.5
@@ -135,7 +135,7 @@ data_frame_sexo <- data.frame(
 )
 
 
-#----------------------------------------ESCOLARIDADE DE TRABALHADORES DE UMA FABRICA TEXTIL---------------------------------------
+#-----------------------ESCOLARIDADE DE TRABALHADORES DE UMA FABRICA TEXTIL---------------------------------------
 
 escolaridade_tamanho_amostra <- 200
 set.seed(22)
@@ -150,7 +150,7 @@ barplot(table(amostra_escolaridade),
         main = "Escolaridade de trabalhadores de uma fabrica textil",
         xlab = "Escolaridade",
         ylab = "Frequencia(quantidade)",
-        col = "darkgoldenrod2",
+        col = "gold",
         border = "white",
         las = 2,
         cex.names = 0.7)
@@ -183,7 +183,7 @@ data_frame_profissao <- data.frame(
 )
 
 
-#----------------------------------------- TABAGISMO ENTRE MOTORISTAS DE CAMINHAO DE LONGA DISTANCIA ---------------------
+#----------------------------------- TABAGISMO ENTRE MOTORISTAS DE CAMINHAO DE LONGA DISTANCIA ---------------------
 
 fumante_tamanho_amostra <- 200
 set.seed(44)
@@ -204,7 +204,7 @@ data_frame_fumante <- data.frame(
 )
 
 
-#----------------------------------------- SALARIO DE DESENVOLVEDORES JUNIOR NO BRASIL ------------
+#------------------------------- SALARIO DE DESENVOLVEDORES JUNIOR NO BRASIL ------------
 
 salario_tamanho_amostra <- 200
 salario_media <- 4200
